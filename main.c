@@ -5,7 +5,14 @@
 int load_csv(const char *file_name, waveformSample *samples, int n);
 double compute_rms(waveformSample *samples, int n);
 
-int main() {
+int main(int argc, char *argv[]) {
+
+    if (argc < 2) {
+        printf("Error: Missing input filename\n");
+        printf("Usage: %s <filename.csv>\n", argv[0]);
+        return 1;
+    }
+
     int num_rows = 1000;
 
     waveformSample *samples = malloc(num_rows * sizeof(waveformSample));

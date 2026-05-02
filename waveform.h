@@ -19,4 +19,4 @@ typedef struct {
     double thdPercent;
 
 } waveformSample;
-#endif //UNTITLED2_WAVEFORM_H
+#endif
