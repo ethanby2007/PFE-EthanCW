@@ -19,7 +19,7 @@ typedef struct {
     double thdPercent;
 
 } waveformSample;
-double compute_rms(waveformSample *samples, int n);
+double compute_rms(waveformSample *samples, int n, double *rmsA, double *rmsB, double *rmsC);
 double computePtP(waveformSample *samples, int n);
 double computeDCoffset(waveformSample *samples, int n);
 void countClipped(waveformSample *samples, int n, int *a_out, int *b_out, int *c_out);

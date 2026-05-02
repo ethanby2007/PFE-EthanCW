@@ -1,13 +1,17 @@
 #include <math.h>
 #include "waveform.h"
 
-double compute_rms(waveformSample *samples, int n) {
-    double sum_sq = 0.0;
+double compute_rms(waveformSample *samples, int n, double *rmsA, double *rmsB, double *rmsC) {
+    double sumA = 0.0, sumB = 0.0, sumC = 0.0;
 
     for (int i = 0; i < n; i++) {
-        sum_sq += (samples[i].phaseVoltageA * samples[i].phaseVoltageA);
+        sumA += (samples[i].phaseVoltageA * samples[i].phaseVoltageA);
+        sumB += (samples[i].phaseVoltageB * samples[i].phaseVoltageB);
+        sumC += (samples[i].phaseVoltageC * samples[i].phaseVoltageC);
     }
-    return sqrt(sum_sq / n);
+    *rmsA = sqrt(sumA / n);
+    *rmsB = sqrt(sumB / n);
+    *rmsC = sqrt(sumC / n);
 
 }
 

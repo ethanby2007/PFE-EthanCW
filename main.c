@@ -23,7 +23,8 @@ int main(int argc, char *argv[]) {
     if (load_csv("power_quality_log.csv", samples, num_rows)) {
         printf("Successfully loaded %d samples\n", num_rows);
 
-        double v_rms_a = compute_rms(samples, num_rows);
+        double v_rms_a, v_rms_b, v_rms_c;
+        compute_rms(samples, num_rows, &v_rms_a, &v_rms_b, &v_rms_c);
         printf("Phase A RMS Voltage: %.2f V\n", v_rms_a);
 
         printf("First sample - time: %.4f, Phase A: %.2fV\n", samples[0].tStamp, samples[0].phaseVoltageA);
@@ -38,6 +39,9 @@ int main(int argc, char *argv[]) {
         int clipsA, clipsB, clipsC;
         countClipped(samples, num_rows, &clipsA, &clipsB, &clipsC);
         printf("Clipping detected: Phase A = %d, phase B = %d, phase C = %d\n", clipsA, clipsB, clipsC);
+
+        writeResults("results.txt", v_rms_a, v_rms_b, v_rms_c, v_pp_a, v_dc_a, clipsA);
+        printf("Report created: results.txt\n");
 
     } else {
         printf("Failed to load file\n");
