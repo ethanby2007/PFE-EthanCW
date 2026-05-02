@@ -1,9 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "waveform.h"
-
-int load_csv(const char *file_name, waveformSample *samples, int n);
-double compute_rms(waveformSample *samples, int n);
+#include "io.h"
 
 int main(int argc, char *argv[]) {
 

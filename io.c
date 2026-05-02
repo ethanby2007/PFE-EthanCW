@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "waveform.h"
+#include "io.h"
 
 int load_csv(const char *filename, waveformSample *samples, int n) {
     FILE *file = fopen(filename, "r");

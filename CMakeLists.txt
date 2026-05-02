@@ -4,4 +4,5 @@ project(untitled2 C)
 set(CMAKE_C_STANDARD 99)
 
 add_executable(PFE-EthanCW main.c io.c waveform.h
-        waveform.c)
+        waveform.c
+        io.h)
