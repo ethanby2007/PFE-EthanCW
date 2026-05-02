@@ -22,5 +22,5 @@ typedef struct {
 
 double computePtP(waveformSample *samples, int n);
 double computeDCoffset(waveformSample *samples, int n);
-
+void countClipped(waveformSample *samples, int n, int *a_out, int *b_out, int *c_out);
 #endif

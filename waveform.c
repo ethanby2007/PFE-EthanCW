@@ -29,3 +29,22 @@ double computeDCoffset(waveformSample *samples, int n) {
     }
     return sum / n;
 }
+
+void countClipped(waveformSample *samples, int n, int *a_out, int *b_out, int *c_out) {
+    *a_out = 0;
+    *b_out = 0;
+    *c_out = 0;
+    const double limit = 324.99;
+
+    for (int i = 0; i < n; i++) {
+        if (fabs(samples[i].phaseVoltageA) >= limit) {
+            (*a_out)++;
+        }
+        if (fabs(samples[i].phaseVoltageB) >= limit) {
+            (*b_out)++;
+        }
+        if (fabs(samples[i].phaseVoltageC) >= limit) {
+            (*c_out)++;
+        }
+    }
+}

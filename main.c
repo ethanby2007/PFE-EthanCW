@@ -37,6 +37,10 @@ int main(int argc, char *argv[]) {
         printf("Phase A peak to peak: %.2f V\n", v_pp_a);
         printf("Phase A DC offset: %.4f V\n", v_dc_a);
 
+        int clipsA, clipsB, clipsC;
+        countClipped(samples, num_rows, &clipsA, &clipsB, &clipsC);
+        printf("Clipping detected: Phase A = %d, phase B = %d, phase C = %d\n", clipsA, clipsB, clipsC);
+
     } else {
         printf("Failed to load file\n");
     }
