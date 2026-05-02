@@ -19,4 +19,8 @@ typedef struct {
     double thdPercent;
 
 } waveformSample;
+
+double computePtP(waveformSample *samples, int n);
+double computeDCoffset(waveformSample *samples, int n);
+
 #endif

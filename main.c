@@ -31,6 +31,12 @@ int main(int argc, char *argv[]) {
         printf("First sample - time: %.4f, Phase A: %.2fV\n", samples[0].tStamp, samples[0].phaseVoltageA);
         printf("Second sample - time: %.4f, Phase A: %.2fV\n", samples[1].tStamp, samples[1].phaseVoltageA);
 
+        double v_pp_a = computePtP(samples, num_rows);
+        double v_dc_a = computeDCoffset(samples, num_rows);
+
+        printf("Phase A peak to peak: %.2f V\n", v_pp_a);
+        printf("Phase A DC offset: %.4f V\n", v_dc_a);
+
     } else {
         printf("Failed to load file\n");
     }
